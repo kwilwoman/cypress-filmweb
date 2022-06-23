@@ -67,17 +67,15 @@ describe("Testing filmweb.pl", () => {
             cy.get(".filmRating--filmCritic").should("exist");
         });
     });
-
     describe("Testing oscar awards page for movie", () => { // Testowanie strony z nagrodami oscarów dla filmu
         before(() => {
             cy.visit("/awards/Oscary/2022");
-            cy.get("#didomi-notice-agree-button").click(); //klikniecie w przycisk -> akceptuje i przechodze do serwisu
-            cy.wait(20000); // -> załadowana strona z oskarami
+            cy.get("#didomi-notice-agree-button").click(); 
         });
 
         it(`It should have all oscar categories listed"`, () => { // Powinien mieć wymienione wszystkie kategorie Oscarów
-            data.oscarCategoryNames.forEach((oscarCategory) => { //? jak dziala ta petla
-                cy.contains(".categoryName", oscarCategory).should("exist");  //dlaczego tylko ta kategoria jest spr skoro w it napisane ze all?
+            data.oscarCategoryNames.forEach((oscarCategory) => { 
+                cy.contains(".categoryName", oscarCategory).should("exist");  
             });
 
         });
@@ -86,7 +84,7 @@ describe("Testing filmweb.pl", () => {
     describe("Testing VOD movies page", () => {
         before(() => {
             cy.visit("/ranking/vod/film");
-            cy.get("#didomi-notice-agree-button").click(); //klikniecie w przycisk -> akceptuje i przechodze do serwisu
+            cy.get("#didomi-notice-agree-button").click(); 
             cy.wait(20000);
         });
 
